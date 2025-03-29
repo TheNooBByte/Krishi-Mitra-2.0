@@ -11,12 +11,15 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 75vw;
+  height: 74vh;
   padding: 2.5rem;
   box-sizing: border-box;
   /* border: 1px solid #dadce0; */
   -webkit-border-radius: 8px;
   border-radius: 8px;
   /* border: solid 1px; */
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .box h2 {
@@ -43,8 +46,9 @@ body {
   position: relative;
 }
 
-.box .inputBox input {
-  width: 93%;
+.box .inputBox input,
+.input {
+  width: 55vw;
   padding: 0.625rem 10px;
   font-size: 1rem;
   letter-spacing: 0.062rem;
@@ -105,4 +109,47 @@ body {
   top: 20%;
   right: 5%;
   float: right;
+}
+.container-addEquipment {
+  /* border: solid 1px; */
+  background-color: #fff5e4;
+  width: 75vw;
+  height: 75vh;
+  margin: auto;
+  margin-top: 12vh;
+  border-radius: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.Main-logo {
+  width: 25vw;
+  position: absolute;
+  top: 6.5vh;
+  left: 36.5vw;
+  z-index: 1;
+}
+
+/* Keep label inside until user selects an option */
+.box .inputBox .input:not(:focus):has(option[value="null"]:checked) ~ label {
+  top: 2vh;
+  transform: translateY(-50%);
+  left: 10px;
+  color: gray;
+  font-size: 1rem;
+  background: none;
+  padding: 0;
+}
+
+/* Move label up when select is focused or has a value */
+.box .inputBox .input:focus ~ label,
+.box .inputBox .input:not(:has(option[value=""]:checked)) ~ label {
+  top: -1.125rem;
+  left: 10px;
+  color: #1a73e8;
+  font-size: 0.75rem;
+  background-color: #fff5e4;
+  height: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }

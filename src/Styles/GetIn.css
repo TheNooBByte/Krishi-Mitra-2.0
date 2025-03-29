@@ -22,12 +22,12 @@ body {
 }
 .sigin-or {
   position: absolute;
-  top: 63vh;
+  top: 67vh;
   left: 46vw;
 }
 .btn-register {
   position: absolute;
-  top: 68vh;
+  top: 75vh;
   left: 20vw;
   border: none;
   outline: none;
@@ -42,7 +42,7 @@ body {
 
 .btn-login {
   position: absolute;
-  top: 74.5vh;
+  top: 80vh;
   left: 4vw;
   border: none;
   outline: none;
