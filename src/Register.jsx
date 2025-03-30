@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 import "./Styles/Login.css";
 import { useState } from "react";
@@ -95,13 +96,19 @@ export default function Register() {
             />
             <label>Pincode</label>
           </div>
-
-          <input
-            style={{ marginLeft: "33vw" }}
-            type="submit"
-            name="Register"
-            value="Register"
-          />
+          <div className="btns-getin">
+            <div className="link-getin" style={{ width: "20vw" }}>
+              <Link className="link-text" to="/">
+                Login
+              </Link>
+            </div>
+            <input
+              style={{ width: "25vw" }}
+              type="submit"
+              name="Register"
+              value="Register"
+            />
+          </div>
         </form>
       </div>
     </>

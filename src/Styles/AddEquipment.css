@@ -95,7 +95,7 @@ body {
   border-radius: 0.312rem;
   font-size: 1rem;
   width: 24vw;
-  margin-left: 15vw;
+  /* margin-left: 15vw; */
 }
 
 .box input[type="submit"]:hover {

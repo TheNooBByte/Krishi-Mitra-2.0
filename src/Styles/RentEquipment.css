@@ -1,0 +1,90 @@
+.rent-equipment-container {
+  /* border: solid 1px; */
+  width: 100%;
+  height: 88vh;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+
+.rent-equip-card {
+  /* border: solid 1px; */
+  width: 45vw;
+  height: 25vh;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 2vw;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.re-img {
+  border-bottom: solid 1px;
+  height: 60%;
+  width: 100%;
+  margin: 0%;
+}
+.re-details {
+  margin: 0%;
+  /* border: solid 1px; */
+  height: 38%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: solid 1px; */
+}
+
+.re-details > div {
+  height: 80%;
+  width: 90%;
+  /* border: solid 1px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h4 {
+  margin: 0%;
+}
+
+.re-details > div > * {
+  font-size: 11px;
+}
+.btn-re-view-details {
+  border: none;
+  width: 80%;
+  height: 40%;
+  margin: auto;
+  border-radius: 5px;
+  background-color: aquamarine;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.re-details > div > span {
+  float: right;
+  /* margin-left: 20vw; */
+}
+
+.vdimg {
+  width: 25vw;
+  margin-left: 35vw;
+  margin-top: 5vh;
+}
+
+.vd-Heading {
+  text-align: center;
+}
+
+.imgs-Containers {
+  /* border: solid 1px; */
+  width: 90vw;
+  height: 30vh;
+  margin: auto;
+  display: flex;
+}
+ 

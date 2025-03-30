@@ -3,6 +3,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 import "./Styles/Login.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [formdata, setFormData] = useState({});
@@ -25,7 +26,7 @@ export default function Login() {
 
   return (
     <>
-      <div className="box">
+      <div className="box" style={{ marginTop: "10vh" }}>
         <h2>Login</h2>
         <form onSubmit={submitForm}>
           <div className="inputBox">
@@ -53,8 +54,19 @@ export default function Login() {
               icon={isPasswordVisible ? faEye : faEyeSlash}
             />
           </div>
-
-          <input type="submit" name="sign-in" value="Login" />
+          <div className="btns-getin">
+            <div className="link-getin" style={{ width: "25vw" }}>
+              <Link className="link-text" to="/register">
+                Register
+              </Link>
+            </div>
+            <input
+              style={{ width: "20vw" }}
+              type="submit"
+              name="sign-in"
+              value="Login"
+            />
+          </div>
         </form>
       </div>
     </>

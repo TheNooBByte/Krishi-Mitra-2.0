@@ -150,11 +150,11 @@ export default function AddEquipment() {
                 // onChange={setValue}
                 // value={formdata.pinCode || ""}
               />
-              <label>Pincode</label>
+              <label>Image</label>
             </div>
 
             <input
-              style={{ marginLeft: "15vw", width: "40vw" }}
+              style={{ marginLeft: "6vw", width: "40vw" }}
               type="submit"
               name="Submit"
               value="Submit"
