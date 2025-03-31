@@ -87,4 +87,79 @@ h4 {
   margin: auto;
   display: flex;
 }
- 
+.details-container {
+  /* border: solid 1px; */
+  width: 90vw;
+  height: 42vh;
+  margin: auto;
+}
+
+.details-container > * {
+  /* margin-left: 10vw; */
+  width: 60vw;
+  height: 3vh;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.time-slote,
+.disc-box {
+  border: solid 1px;
+  height: 5vh;
+  width: 50vw;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+}
+.time-slote > label {
+  font-weight: 10px;
+  position: fixed;
+  top: 72.5vh;
+  left: 10vw;
+  background-color: #c1d8c3;
+}
+.time-slote > label > h3 {
+  margin: 0%;
+}
+.disc-box > label > h3 {
+  margin: 0%;
+}
+
+.disc-box {
+  width: 90%;
+  height: 5vh;
+  padding-top: 70px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-y: scroll;
+}
+
+.disc-box > label {
+  font-weight: 10px;
+  position: fixed;
+  top: 75.5vh;
+  left: 10vw;
+  background-color: #c1d8c3;
+}
+
+.btn-book-now {
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: #1a73e8;
+  /* padding: 0.625rem 1.25rem; */
+  text-align: center;
+  padding: 0%;
+  height: 5vh;
+  margin: auto;
+  width: 30vw;
+  cursor: pointer;
+  border-radius: 0.312rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

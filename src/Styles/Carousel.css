@@ -13,6 +13,7 @@
   height: 28vh;
   width: 90vw;
   margin: auto;
+}
 .carousel-wrapper {
   /* border: solid 2px; */
   display: flex;
@@ -20,7 +21,6 @@
   transition: transform 0.5s ease-in-out;
   height: 28vh;
 }
-
 .carousel-image {
   width: 100%;
   /* height: 28vh; */
