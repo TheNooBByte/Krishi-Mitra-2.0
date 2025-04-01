@@ -40,6 +40,159 @@ export default function RentEquipment() {
               </div>
             </div>
           </div>
+          <div className="rent-equip-card">
+            <img src="" alt="" className="re-img" />
+            <div className="re-details">
+              <div>
+                <h4>{"Product-Name"}</h4>
+                <span>₹ {"2000"} /day</span>
+                <button
+                  className="btn-re-view-details"
+                  onClick={() =>
+                    setIsViewDetail(<ViewDetails details={details} />)
+                  }
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="rent-equip-card">
+            <img src="" alt="" className="re-img" />
+            <div className="re-details">
+              <div>
+                <h4>{"Product-Name"}</h4>
+                <span>₹ {"2000"} /day</span>
+                <button
+                  className="btn-re-view-details"
+                  onClick={() =>
+                    setIsViewDetail(<ViewDetails details={details} />)
+                  }
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="rent-equip-card">
+            <img src="" alt="" className="re-img" />
+            <div className="re-details">
+              <div>
+                <h4>{"Product-Name"}</h4>
+                <span>₹ {"2000"} /day</span>
+                <button
+                  className="btn-re-view-details"
+                  onClick={() =>
+                    setIsViewDetail(<ViewDetails details={details} />)
+                  }
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="rent-equip-card">
+            <img src="" alt="" className="re-img" />
+            <div className="re-details">
+              <div>
+                <h4>{"Product-Name"}</h4>
+                <span>₹ {"2000"} /day</span>
+                <button
+                  className="btn-re-view-details"
+                  onClick={() =>
+                    setIsViewDetail(<ViewDetails details={details} />)
+                  }
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="rent-equip-card">
+            <img src="" alt="" className="re-img" />
+            <div className="re-details">
+              <div>
+                <h4>{"Product-Name"}</h4>
+                <span>₹ {"2000"} /day</span>
+                <button
+                  className="btn-re-view-details"
+                  onClick={() =>
+                    setIsViewDetail(<ViewDetails details={details} />)
+                  }
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="rent-equip-card">
+            <img src="" alt="" className="re-img" />
+            <div className="re-details">
+              <div>
+                <h4>{"Product-Name"}</h4>
+                <span>₹ {"2000"} /day</span>
+                <button
+                  className="btn-re-view-details"
+                  onClick={() =>
+                    setIsViewDetail(<ViewDetails details={details} />)
+                  }
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="rent-equip-card">
+            <img src="" alt="" className="re-img" />
+            <div className="re-details">
+              <div>
+                <h4>{"Product-Name"}</h4>
+                <span>₹ {"2000"} /day</span>
+                <button
+                  className="btn-re-view-details"
+                  onClick={() =>
+                    setIsViewDetail(<ViewDetails details={details} />)
+                  }
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="rent-equip-card">
+            <img src="" alt="" className="re-img" />
+            <div className="re-details">
+              <div>
+                <h4>{"Product-Name"}</h4>
+                <span>₹ {"2000"} /day</span>
+                <button
+                  className="btn-re-view-details"
+                  onClick={() =>
+                    setIsViewDetail(<ViewDetails details={details} />)
+                  }
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="rent-equip-card">
+            <img src="" alt="" className="re-img" />
+            <div className="re-details">
+              <div>
+                <h4>{"Product-Name"}</h4>
+                <span>₹ {"2000"} /day</span>
+                <button
+                  className="btn-re-view-details"
+                  onClick={() =>
+                    setIsViewDetail(<ViewDetails details={details} />)
+                  }
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       ) : (
         isViewDetail

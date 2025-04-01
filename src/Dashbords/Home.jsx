@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "../Styles/Home.css";
 
 export default function Home() {
-  const images = ["crousel1.png", "crousel1.png", "crousel1.png"];
+  const images = ["crousel1.png", "crousel2.png", "crousel3.png"];
 
   return (
     <>
@@ -25,6 +25,10 @@ export default function Home() {
         <Link to="/AddEquipment" className="provide-equipment">
           Provide A Equipment
         </Link>
+      </div>
+      <div className="home-card">
+        
+
       </div>
     </>
   );

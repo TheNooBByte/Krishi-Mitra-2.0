@@ -18,8 +18,8 @@ export default function BookingData({ datas }) {
         </div>
         <div>
           <strong className="action-btns">
-            <button style={{ background: "lightGreen" }}>Accept</button>
-            <button style={{ color: "red", border: "solid 1px red" }}>
+            <button style={{ background: "#5CB338" }}>Accept</button>
+            <button style={{ background: "#FB4141", border: "solid 1px red" }}>
               Reject
             </button>
           </strong>
