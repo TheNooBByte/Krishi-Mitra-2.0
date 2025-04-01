@@ -46,3 +46,8 @@
 .action-btns:nth-child(2) {
   background-color: red;
 }
+.view-details {
+  background-color: transparent;
+  border: none;
+  color: blue;
+}

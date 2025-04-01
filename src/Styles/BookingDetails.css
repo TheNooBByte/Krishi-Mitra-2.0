@@ -1,0 +1,13 @@
+.bkdetails-container {
+  border: solid 1px;
+}
+
+.bkdetails-container > div {
+  /* border-left: solid 3px; */
+  margin: 2vh;
+  width: 70vw;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}

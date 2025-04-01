@@ -1,6 +1,12 @@
 import "../Styles/BookingData.css";
+import { useNavigate } from "react-router-dom";
 
 export default function BookingData({ datas }) {
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/BookingDetails", { state: datas });
+  };
+
   return (
     <>
       <div className="data-inner-container">
@@ -25,7 +31,11 @@ export default function BookingData({ datas }) {
           </strong>
         </div>
         <div>
-          <strong>Dateails</strong>
+          <strong>
+            <button className="view-details" onClick={handleNavigate}>
+              View Dateails
+            </button>
+          </strong>
         </div>
       </div>
     </>

@@ -8,6 +8,7 @@ import RentEquipment from "./Coponents/RentEquipment";
 import GetIn from "./GetIn";
 // import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import BookingDetails from "./Coponents/BookingDetails";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/AddEquipment" element={<AddEquipment />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/RentEquipment" element={<RentEquipment />} />
+        <Route path="/BookingDetails" element={<BookingDetails />} />
       </Routes>
     </>
   );
