@@ -4,14 +4,14 @@ import Login from "./Login";
 import { useState } from "react";
 import Register from "./Register";
 import { Route, Routes } from "react-router-dom";
-export default function GetIn() {
+export default function GetIn({ refresh }) {
   const [isLogin, setIsLogin] = useState(true);
   return (
     <>
       <div className="container-login">
         <img className="Main-logo" src={MainLogo} alt="" />
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Login refresh={refresh} />} />
           <Route path="/register" element={<Register />} />
         </Routes>
         {/* {isLogin ? <Login /> : <Register />}

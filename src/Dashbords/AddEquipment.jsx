@@ -48,11 +48,12 @@ export default function AddEquipment() {
               >
                 <option value="null"></option>
                 <option className="option" value="a">
-                  a
+                  Rotavator
                 </option>
-                <option value="b">b</option>
-                <option value="c">c</option>
-                <option value="d">d</option>
+                <option value="b">Thresher</option>
+                <option value="c">Trolley</option>
+                <option value="d">Disk Plough</option>
+                <option value="d">Laser Land Leveler </option>
               </select>
               <label>Equipment Type</label>
             </div>
@@ -65,10 +66,10 @@ export default function AddEquipment() {
                 id=""
               >
                 <option value="null"></option>
-                <option value="a">a</option>
-                <option value="b">b</option>
-                <option value="c">c</option>
-                <option value="d">d</option>
+                <option value="a">Sonalika</option>
+                <option value="b">Mahindra</option>
+                <option value="c">Swaraj</option>
+                <option value="d">Shaktiman</option>
               </select>
               <label>Brand</label>
             </div>
@@ -81,10 +82,10 @@ export default function AddEquipment() {
                 id=""
               >
                 <option value="null"></option>
-                <option value="a">a</option>
-                <option value="b">b</option>
-                <option value="c">c</option>
-                <option value="d">d</option>
+                <option value="a">30-40 HP</option>
+                <option value="b">40-50 HP</option>
+                <option value="c">60-75 HP</option>
+                <option value="d">75-None</option>
               </select>
               <label>Implement Power</label>
             </div>
@@ -117,7 +118,7 @@ export default function AddEquipment() {
                 onChange={setValue}
                 value={formdata.amount || ""}
               />
-              <label>Fare ₹</label>
+              <label>Fare/Per Day </label>
             </div>
             <div className="inputBox">
               <input

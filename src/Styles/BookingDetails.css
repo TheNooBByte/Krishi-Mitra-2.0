@@ -11,3 +11,67 @@
   align-items: center;
   justify-content: start;
 }
+body {
+  background-color: #c1d8c3;
+}
+
+.container-login {
+  /* border: solid 1px; */
+  background-color: #fff5e4;
+  width: 75vw;
+  height: 75vh;
+  margin: auto;
+  margin-top: 12vh;
+  border-radius: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.Main-logo {
+  width: 25vw;
+  position: absolute;
+  top: 6.5vh;
+  left: 36.5vw;
+}
+.sigin-or {
+  position: absolute;
+  top: 67vh;
+  left: 46vw;
+}
+.btn-register {
+  position: absolute;
+  top: 75vh;
+  left: 20vw;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: #1a73e8;
+  padding: 0.625rem 1.25rem;
+  cursor: pointer;
+  border-radius: 0.312rem;
+  font-size: 1rem;
+  margin-left: 17vw;
+}
+
+.btn-login {
+  position: absolute;
+  top: 80vh;
+  left: 4vw;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: #1a73e8;
+  padding: 0.625rem 1.25rem;
+  cursor: pointer;
+  border-radius: 0.312rem;
+  font-size: 1rem;
+  width: 24vw;
+  /* margin-left: 18vw; */
+}
+
+.inner-cont-reuestd {
+  /* height: 75vh; */
+  padding-top: 5.1vh;
+  border: solid 1px;
+  margin-top: 12vh;
+}

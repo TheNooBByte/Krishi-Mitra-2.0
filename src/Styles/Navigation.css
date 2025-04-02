@@ -1,11 +1,11 @@
 .bottom-navgation {
   position: fixed;
-  background-color: #ADB2D4;
+  background-color: #A1E3F9;
   width: 100%;
   bottom: 0px;
   height: 10vh;
   z-index: 1;
-  border-top: solid 1px;
+  /* border-top: solid 1px; */
 }
 .links {
   display: flex;
@@ -34,7 +34,7 @@
   text-align: center;
   height: 4vh;
   width: 20vw;
-  background-color: #adb2d4;
+  background-color:transparent;
   /* border: solid 1px; */
   border-radius: 20px;
 }

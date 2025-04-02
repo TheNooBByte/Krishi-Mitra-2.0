@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import axiosInstance from "./HelperFiles/axiosInstance";
 import { Link } from "react-router-dom";
 
 import "./Styles/Login.css";
@@ -18,6 +19,19 @@ export default function Register() {
 
   const submitForm = async (event) => {
     event.preventDefault();
+    if (formdata.password == formdata.Confpassword) {
+      // let username = formdata.username;
+      // let password = formdata.password;
+      try {
+        const res = await axiosInstance.post("/register", { ...formdata });
+        // console.log(res);
+        alert(res.data.message);
+      } catch (error) {
+        alert(error.response.data.error);
+      }
+    } else {
+      console.log("Err both password are different");
+    }
   };
 
   const setVisiblity = () => {
@@ -26,18 +40,19 @@ export default function Register() {
 
   return (
     <>
+      {notify}
       <div className="box">
         <h2>Register</h2>
         <form onSubmit={submitForm}>
           <div className="inputBox">
             <input
               type="text"
-              name="FullName"
+              name="username"
               required
               onChange={setValue}
-              value={formdata.FullName || ""}
+              value={formdata.username || ""}
             />
-            <label>Full Name</label>
+            <label>Username</label>
           </div>
           <div className="inputBox">
             <input
@@ -58,7 +73,7 @@ export default function Register() {
               onChange={setValue}
               value={formdata.password || ""}
             />
-            <label>Passward</label>
+            <label>Password</label>
             <FontAwesomeIcon
               className="icon"
               onClick={setVisiblity}
@@ -73,7 +88,7 @@ export default function Register() {
               onChange={setValue}
               value={formdata.Confpassword || ""}
             />
-            <label>Confirm Passward</label>
+            <label>Confirm Password</label>
           </div>
 
           <div className="inputBox">

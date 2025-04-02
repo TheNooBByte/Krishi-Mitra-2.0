@@ -33,7 +33,7 @@ export default function BookingData({ datas }) {
         <div>
           <strong>
             <button className="view-details" onClick={handleNavigate}>
-              View Dateails
+              View Details
             </button>
           </strong>
         </div>

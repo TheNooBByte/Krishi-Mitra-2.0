@@ -21,10 +21,10 @@ export default function Home() {
         <Carousel images={images} />
         <div className="home-btns">
           <Link to="/RentEquipment" className="rent-equipment">
-            Hire Equipment
+            Rent Equipment
           </Link>
           <Link to="/AddEquipment" className="provide-equipment">
-            Get Equipment
+            Provide Equipment
           </Link>
         </div>
         <div className="home-card">

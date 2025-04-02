@@ -28,7 +28,7 @@ export default function RentEquipment() {
             <div className="re-details">
               <div>
                 <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /day</span>
+                <span>₹ {"2000"} /Day</span>
                 <button
                   className="btn-re-view-details"
                   onClick={() =>
@@ -45,7 +45,7 @@ export default function RentEquipment() {
             <div className="re-details">
               <div>
                 <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /day</span>
+                <span>₹ {"2000"} /Day</span>
                 <button
                   className="btn-re-view-details"
                   onClick={() =>
@@ -62,7 +62,7 @@ export default function RentEquipment() {
             <div className="re-details">
               <div>
                 <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /day</span>
+                <span>₹ {"2000"} /Day</span>
                 <button
                   className="btn-re-view-details"
                   onClick={() =>
@@ -79,7 +79,7 @@ export default function RentEquipment() {
             <div className="re-details">
               <div>
                 <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /day</span>
+                <span>₹ {"2000"} /Day</span>
                 <button
                   className="btn-re-view-details"
                   onClick={() =>
@@ -96,7 +96,7 @@ export default function RentEquipment() {
             <div className="re-details">
               <div>
                 <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /day</span>
+                <span>₹ {"2000"} /Day</span>
                 <button
                   className="btn-re-view-details"
                   onClick={() =>
@@ -113,7 +113,7 @@ export default function RentEquipment() {
             <div className="re-details">
               <div>
                 <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /day</span>
+                <span>₹ {"2000"} /Day</span>
                 <button
                   className="btn-re-view-details"
                   onClick={() =>
@@ -130,7 +130,7 @@ export default function RentEquipment() {
             <div className="re-details">
               <div>
                 <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /day</span>
+                <span>₹ {"2000"} /Day</span>
                 <button
                   className="btn-re-view-details"
                   onClick={() =>
@@ -147,7 +147,7 @@ export default function RentEquipment() {
             <div className="re-details">
               <div>
                 <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /day</span>
+                <span>₹ {"2000"} /Day</span>
                 <button
                   className="btn-re-view-details"
                   onClick={() =>
@@ -164,7 +164,7 @@ export default function RentEquipment() {
             <div className="re-details">
               <div>
                 <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /day</span>
+                <span>₹ {"2000"} /Day</span>
                 <button
                   className="btn-re-view-details"
                   onClick={() =>
@@ -181,7 +181,7 @@ export default function RentEquipment() {
             <div className="re-details">
               <div>
                 <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /day</span>
+                <span>₹ {"2000"} /Day</span>
                 <button
                   className="btn-re-view-details"
                   onClick={() =>

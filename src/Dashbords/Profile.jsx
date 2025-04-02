@@ -78,7 +78,7 @@ export default function Profile() {
                 onChange={setValue}
                 value={formdata.password || ""}
               />
-              <label>Passward</label>
+              <label>Password</label>
               {isEdite && (
                 <FontAwesomeIcon
                   className="icon"

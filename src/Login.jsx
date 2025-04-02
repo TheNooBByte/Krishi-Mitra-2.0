@@ -1,23 +1,39 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import axiosInstance from "./HelperFiles/axiosInstance";
 
 import "./Styles/Login.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Login() {
+export default function Login({ refresh }) {
   const [formdata, setFormData] = useState({});
   const [isPasswordVisible, setPasswordVisible] = useState(false);
 
   const setValue = (event) => {
-    setFormData((formdata) => {
-      formdata[event.target.name] = event.target.value;
-      return { ...formdata };
-    });
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   const submitForm = async (event) => {
     event.preventDefault();
+
+    let username = formdata.username;
+    let password = formdata.password;
+    try {
+      const res = await axiosInstance.post("/login", { username, password });
+      localStorage.setItem("token", res.data.token); // Store JWT
+      localStorage.setItem("user", res.data.userData);
+      // console.log(res.data.userData);
+      alert(res.data.message);
+      refresh();
+    } catch (error) {
+      // alert(error.response.data.error);
+      alert(error.response.data.error);
+    }
   };
 
   const setVisiblity = () => {
@@ -47,7 +63,7 @@ export default function Login() {
               onChange={setValue}
               value={formdata.password || ""}
             />
-            <label>Passward</label>
+            <label>Password</label>
             <FontAwesomeIcon
               className="icon"
               onClick={setVisiblity}
