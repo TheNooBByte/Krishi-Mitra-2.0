@@ -117,7 +117,7 @@ export default function AddEquipment() {
                 onChange={setValue}
                 value={formdata.amount || ""}
               />
-              <label>Amount ₹</label>
+              <label>Fare ₹</label>
             </div>
             <div className="inputBox">
               <input

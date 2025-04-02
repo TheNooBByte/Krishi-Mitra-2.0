@@ -24,13 +24,13 @@ export default function Dashbord() {
             <h3>Equipment</h3>
           </div>
           <div>
-            <h3>Price</h3>
+            <h3>Fare</h3>
           </div>
           <div>
             <h3>Action</h3>
           </div>
           <div>
-            <h3>Dateails</h3>
+            <h3>Details</h3>
           </div>
         </div>
         <div className="data-container">

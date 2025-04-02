@@ -33,9 +33,45 @@
 }
 
 .rent-equipment {
-  background-color: antiquewhite;
+  background-color: #FFF2F2;
 }
 
 .provide-equipment {
-  background-color: aquamarine;
+  background-color: #FFF2F2;
+}
+
+.home-card {
+  /* border: solid 1px; */
+  height: 25vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.inr,
+.wheat {
+  width: 40vw;
+  /* border: solid 1px; */
+  height: 22vh;
+  border-radius: 10px;
+}
+
+.inr > img,
+.wheat > img {
+  width: 25vw;
+  height: 58%;
+  border-bottom: none;
+  padding-left: 18px;
+}
+
+.inr > div,
+.wheat > div {
+  text-align: center;
+}
+
+.bgcolor{
+  /* border-color: #fff5e4; */
+  border-radius: 15px;
+  /* background-color: #fff5e4; */
+  /* border:solid; */
 }

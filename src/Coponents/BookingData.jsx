@@ -14,13 +14,13 @@ export default function BookingData({ datas }) {
           <strong>Date</strong>
         </div>
         <div>
-          <strong>Booking Id</strong>
+          <strong>Booking_Id</strong>
         </div>
         <div>
           <strong>Equipment</strong>
         </div>
         <div>
-          <strong>Price</strong>
+          <strong>Fare</strong>
         </div>
         <div>
           <strong className="action-btns">

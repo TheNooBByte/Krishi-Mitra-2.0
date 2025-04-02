@@ -18,7 +18,7 @@ export default function ViewDetails({ details }) {
         <h2 id="h1">Equipemt Name</h2>
         <h3>Brand name</h3>
         <h3>Emplement Power</h3>
-        <h3>Fair</h3>
+        <h3>Fare</h3>
         <div className="time-slote">
           <label>
             <h3>Availability</h3>

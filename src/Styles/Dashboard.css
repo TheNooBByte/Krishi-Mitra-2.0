@@ -1,4 +1,5 @@
 .dashbord-container {
+  background-color: #fff5e4;
   border: solid 1px;
   height: 60vh;
   width: 95vw;
@@ -29,10 +30,10 @@
 }
 
 .headings > div {
-  border-left: solid 5px #2196f3;
+  border: solid 1px;
   /* border-style: dashed; */
-  /* border-left: none; */
-  background-color: #ddffff;
+  border-left: none;
+  /* background-color: #ddffff; */
 
   width: 100%;
   height: 10%;

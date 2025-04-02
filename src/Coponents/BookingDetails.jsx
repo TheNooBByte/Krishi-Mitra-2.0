@@ -43,7 +43,7 @@ export default function BookingDetails() {
           Renter Name: <strong>raunak</strong>
         </div>
         <div>
-          Contact no: <strong>10-10-2993</strong>
+          Mobile no: <strong>10-10-2993</strong>
         </div>
       </div>
     </>

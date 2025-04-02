@@ -16,19 +16,37 @@ export default function Home() {
         alt=""
         className="mainLogo"
       />
-      <h2 style={{ textAlign: "center" }}> Namaste! {"user"}</h2>
-      <Carousel images={images} />
-      <div className="home-btns">
-        <Link to="/RentEquipment" className="rent-equipment">
-          Rent A Equipment
-        </Link>
-        <Link to="/AddEquipment" className="provide-equipment">
-          Provide A Equipment
-        </Link>
-      </div>
-      <div className="home-card">
-        
-
+      <div className="bgcolor">
+        <h2 style={{ textAlign: "center" }}> Namaste! {"user"}</h2>
+        <Carousel images={images} />
+        <div className="home-btns">
+          <Link to="/RentEquipment" className="rent-equipment">
+            Hire Equipment
+          </Link>
+          <Link to="/AddEquipment" className="provide-equipment">
+            Get Equipment
+          </Link>
+        </div>
+        <div className="home-card">
+          <div className="inr">
+            <img
+              src="Krishi-Mitra-2.0\public\homep1.png"
+              alt=""
+              className="imginr"
+            />
+            <div className="disc-inr">
+              INR 10,218 Farmer’s Average Monthly Income
+            </div>
+          </div>
+          <div className="wheat">
+            <img
+              src="Krishi-Mitra-2.0\public\Sucide.png"
+              alt=""
+              className="imgwheat"
+            />
+            <div className="disc-wheat">31 Farmer Suicides in India Daily</div>
+          </div>
+        </div>
       </div>
     </>
   );
