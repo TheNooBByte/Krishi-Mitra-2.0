@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Carousel from "./Carousel";
 
 export default function ViewDetails({ details }) {
@@ -9,7 +9,8 @@ export default function ViewDetails({ details }) {
   for (let tempimage of tempimages) {
     images.push(`${tempimage.split(/[/\\]/).pop()}`);
   }
-  console.log(images);
+  // console.log(images);
+  // console.log("details are:-", details);
 
   // const images = details.imagePaths;
   return (
@@ -24,16 +25,16 @@ export default function ViewDetails({ details }) {
 
       <div className="details-container">
         <h2 id="h1">{details.equipName}</h2>
-        <h3>{details.brand}</h3>
-        <h3>{details.power}</h3>
-        <h3>{details.fare}</h3>
+        <p>{details.brand}</p>
+        <p>{details.power}</p>
+        <p>{details.fair}/Day</p>
         <div className="time-slote">
           <label>
-            <h3>Availability</h3>
+            <p>Availability</p>
           </label>
-          <h4>{details.froms} </h4>
+          <p>{details.froms} </p>
           <h4>to</h4>
-          <h4> {details.tos}</h4>
+          <p> {details.tos}</p>
         </div>
         {/* <div className="disc-box">
           <label>

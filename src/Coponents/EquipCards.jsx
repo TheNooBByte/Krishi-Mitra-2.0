@@ -4,6 +4,7 @@ export default function EquipCards({ details, equipment }) {
   let tempimage = equipment.imagePaths.split(",")[0];
 
   let image = tempimage.split(/[/\\]/).pop();
+  //   console.log(`${Domain}/assets/equipments/${image}`);
 
   return (
     <>
