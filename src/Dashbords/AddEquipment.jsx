@@ -1,20 +1,90 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navigation from "../Coponents/Navigation";
 import "../Styles/AddEquipment.css";
 import MainLogo from "/public/Final Logo.png";
+import axiosInstance from "../HelperFiles/axiosInstance";
 import { useState } from "react";
 
 export default function AddEquipment() {
+  const [images, setImages] = useState([]);
+  const [preview, setPreview] = useState([]);
+  //
+  //
+  //
+
+  const today = new Date();
+  const tomorrow = new Date();
+  const todate = new Date();
+  tomorrow.setDate(today.getDate() + 1);
+  todate.setDate(today.getDate() + 2);
+  //
+  //
+  //
+  //
+  //
   const [formdata, setFormData] = useState({});
+  const id = JSON.parse(localStorage.getItem("user")).id;
   const setValue = (event) => {
     setFormData((formdata) => {
+      formdata.id = id;
       formdata[event.target.name] = event.target.value;
       return { ...formdata };
     });
   };
+  //
+  //
+  //
+
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files);
+    setImages(files);
+    setPreview(files.map((file) => URL.createObjectURL(file)));
+  };
+  //
+  //
+  //
+  //
 
   const submitForm = async (event) => {
     event.preventDefault();
+    const formData = new FormData();
+    Object.entries(formdata).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+
+    images.forEach((image) => {
+      formData.append("images", image);
+    });
+
+    try {
+      const response = await axiosInstance.post("/addequipment", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+
+      setFormData({});
+      alert(response.data.message);
+    } catch (error) {
+      console.error("Upload Failed:", error);
+      alert("Upload Failed!");
+    }
+
+    // axiosInstance
+    //   .post(
+    //     "/addequipment",
+    //     { ...formdata },
+    //     {
+    //       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    //     }
+    //   )
+    //   .then((res) => {
+    //     alert(res.data.message);
+    //   })
+    //   .catch((err) => {
+    //     alert(err.error);
+    //   });
   };
 
   // const setVisiblity = () => {
@@ -50,10 +120,10 @@ export default function AddEquipment() {
                 <option className="option" value="a">
                   Rotavator
                 </option>
-                <option value="b">Thresher</option>
-                <option value="c">Trolley</option>
-                <option value="d">Disk Plough</option>
-                <option value="d">Laser Land Leveler </option>
+                <option value="Thresher">Thresher</option>
+                <option value="Trolley">Trolley</option>
+                <option value="Disk Plough">Disk Plough</option>
+                <option value="Laser Land Leveler">Laser Land Leveler </option>
               </select>
               <label>Equipment Type</label>
             </div>
@@ -66,10 +136,10 @@ export default function AddEquipment() {
                 id=""
               >
                 <option value="null"></option>
-                <option value="a">Sonalika</option>
-                <option value="b">Mahindra</option>
-                <option value="c">Swaraj</option>
-                <option value="d">Shaktiman</option>
+                <option value="Sonalika">Sonalika</option>
+                <option value="Mahindra">Mahindra</option>
+                <option value="Swaraj">Swaraj</option>
+                <option value="Shaktiman">Shaktiman</option>
               </select>
               <label>Brand</label>
             </div>
@@ -82,10 +152,10 @@ export default function AddEquipment() {
                 id=""
               >
                 <option value="null"></option>
-                <option value="a">30-40 HP</option>
-                <option value="b">40-50 HP</option>
-                <option value="c">60-75 HP</option>
-                <option value="d">75-None</option>
+                <option value="30-40 HP">30-40 HP</option>
+                <option value="40-50 HP">40-50 HP</option>
+                <option value="60-75 HP">60-75 HP</option>
+                <option value="75-None">75-None</option>
               </select>
               <label>Implement Power</label>
             </div>
@@ -95,6 +165,7 @@ export default function AddEquipment() {
                 type="date"
                 name="fromDate"
                 required
+                min={tomorrow.toISOString().split("T")[0]}
                 onChange={setValue}
                 value={formdata.fromDate || ""}
               />
@@ -104,6 +175,7 @@ export default function AddEquipment() {
               <input
                 type="date"
                 name="toDate"
+                min={todate.toISOString().split("T")[0]}
                 required
                 onChange={setValue}
                 value={formdata.toDate || ""}
@@ -142,14 +214,13 @@ export default function AddEquipment() {
               />
               <label>Pincode</label>
             </div>
-            <div className="inputBox">
+            <div className="inputBox input-images">
               <input
                 type="file"
-                accept=".png"
-                // name="pinCode"
+                accept="image/png, image/jpeg"
+                multiple
                 required
-                // onChange={setValue}
-                // value={formdata.pinCode || ""}
+                onChange={handleFileChange}
               />
               <label>Image</label>
             </div>

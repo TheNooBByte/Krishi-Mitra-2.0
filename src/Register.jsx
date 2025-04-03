@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import axiosInstance from "./HelperFiles/axiosInstance";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./Styles/Login.css";
 import { useState } from "react";
@@ -9,6 +9,7 @@ import { useState } from "react";
 export default function Register() {
   const [formdata, setFormData] = useState({});
   const [isPasswordVisible, setPasswordVisible] = useState(false);
+  const navigate = useNavigate();
 
   const setValue = (event) => {
     setFormData((formdata) => {
@@ -26,6 +27,7 @@ export default function Register() {
         const res = await axiosInstance.post("/register", { ...formdata });
         // console.log(res);
         alert(res.data.message);
+        navigate("/");
       } catch (error) {
         alert(error.response.data.error);
       }
@@ -40,7 +42,6 @@ export default function Register() {
 
   return (
     <>
-      {notify}
       <div className="box">
         <h2>Register</h2>
         <form onSubmit={submitForm}>

@@ -7,6 +7,12 @@ import "../Styles/Home.css";
 
 export default function Home() {
   const images = ["crousel1.png", "crousel2.png", "crousel3.png"];
+  const storedUser = localStorage.getItem("user");
+  const userObject = storedUser ? JSON.parse(storedUser) : null;
+
+  // console.log(userObject); // { name: "John", age: 25, city: "New York" }
+
+  console.log(userObject.username);
 
   return (
     <>
@@ -17,8 +23,8 @@ export default function Home() {
         className="mainLogo"
       />
       <div className="bgcolor">
-        <h2 style={{ textAlign: "center" }}> Namaste! {"user"}</h2>
-        <Carousel images={images} />
+        <h2 style={{ textAlign: "center" }}> Namaste! {userObject.username}</h2>
+        <Carousel home={true} images={images} />
         <div className="home-btns">
           <Link to="/RentEquipment" className="rent-equipment">
             Rent Equipment

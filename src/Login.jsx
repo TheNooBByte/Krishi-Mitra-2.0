@@ -26,7 +26,7 @@ export default function Login({ refresh }) {
     try {
       const res = await axiosInstance.post("/login", { username, password });
       localStorage.setItem("token", res.data.token); // Store JWT
-      localStorage.setItem("user", res.data.userData);
+      localStorage.setItem("user", JSON.stringify(res.data.userData));
       // console.log(res.data.userData);
       alert(res.data.message);
       refresh();

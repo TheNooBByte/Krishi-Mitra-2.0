@@ -1,7 +1,9 @@
+import Domain from "../HelperFiles/Domain";
+
 import { useState, useEffect } from "react";
 import "../Styles/Carousel.css";
 
-export default function Carousel({ images }) {
+export default function Carousel({ home, images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // const images = ["crousel1.png", "crousel1.png", "crousel1.png"];
@@ -30,7 +32,11 @@ export default function Carousel({ images }) {
           {images.map((img, index) => (
             <img
               key={index}
-              src={"/Krishi-Mitra-2.0/public/" + img}
+              src={
+                home
+                  ? "/Krishi-Mitra-2.0/public/" + img
+                  : `${Domain}/assets/equipments/${img}`
+              }
               alt={`Slide ${index}`}
               className="carousel-image"
             />

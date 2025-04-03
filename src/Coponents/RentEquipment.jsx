@@ -1,201 +1,51 @@
 import Navigation from "./Navigation";
 import "../Styles/RentEquipment.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ViewDetails from "./ViewDetails";
+import axiosInstance from "../HelperFiles/axiosInstance";
+import EquipCards from "./EquipCards";
 
-export default function RentEquipment() {
+export default function RentEquipment({ refresh }) {
   const [isViewDetail, setIsViewDetail] = useState(null);
+  const [equipments, setEquipments] = useState([]);
 
-  let details = {
-    fullimage: "imge",
-    smallimg1: "smlimg1",
-    smallimg2: "smlimg2",
-    eName: "trailer",
-    eBrand: "brand",
-    power: "power",
-    availabiltyFrom: "from",
-    availabiltyTo: "to",
-    description: "description",
+  useEffect(() => {
+    axiosInstance
+      .get("/rentequipment", {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setEquipments(res.data);
+        console.log(res.data.length);
+      })
+      .catch((err) => {
+        console.log(err);
+        if (err.status == 403) {
+          localStorage.clear();
+          refresh();
+        }
+      });
+  }, []);
+
+  let showDetails = (details) => {
+    setIsViewDetail(<ViewDetails details={details} />);
   };
 
   return (
     <>
       <Navigation home={true} />
-      {isViewDetail == null ? (
+      {isViewDetail}
+      {isViewDetail == null && (
         <div className="rent-equipment-container">
-          <div className="rent-equip-card">
-            <img src="" alt="" className="re-img" />
-            <div className="re-details">
-              <div>
-                <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /Day</span>
-                <button
-                  className="btn-re-view-details"
-                  onClick={() =>
-                    setIsViewDetail(<ViewDetails details={details} />)
-                  }
-                >
-                  View
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="rent-equip-card">
-            <img src="" alt="" className="re-img" />
-            <div className="re-details">
-              <div>
-                <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /Day</span>
-                <button
-                  className="btn-re-view-details"
-                  onClick={() =>
-                    setIsViewDetail(<ViewDetails details={details} />)
-                  }
-                >
-                  View
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="rent-equip-card">
-            <img src="" alt="" className="re-img" />
-            <div className="re-details">
-              <div>
-                <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /Day</span>
-                <button
-                  className="btn-re-view-details"
-                  onClick={() =>
-                    setIsViewDetail(<ViewDetails details={details} />)
-                  }
-                >
-                  View
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="rent-equip-card">
-            <img src="" alt="" className="re-img" />
-            <div className="re-details">
-              <div>
-                <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /Day</span>
-                <button
-                  className="btn-re-view-details"
-                  onClick={() =>
-                    setIsViewDetail(<ViewDetails details={details} />)
-                  }
-                >
-                  View
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="rent-equip-card">
-            <img src="" alt="" className="re-img" />
-            <div className="re-details">
-              <div>
-                <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /Day</span>
-                <button
-                  className="btn-re-view-details"
-                  onClick={() =>
-                    setIsViewDetail(<ViewDetails details={details} />)
-                  }
-                >
-                  View
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="rent-equip-card">
-            <img src="" alt="" className="re-img" />
-            <div className="re-details">
-              <div>
-                <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /Day</span>
-                <button
-                  className="btn-re-view-details"
-                  onClick={() =>
-                    setIsViewDetail(<ViewDetails details={details} />)
-                  }
-                >
-                  View
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="rent-equip-card">
-            <img src="" alt="" className="re-img" />
-            <div className="re-details">
-              <div>
-                <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /Day</span>
-                <button
-                  className="btn-re-view-details"
-                  onClick={() =>
-                    setIsViewDetail(<ViewDetails details={details} />)
-                  }
-                >
-                  View
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="rent-equip-card">
-            <img src="" alt="" className="re-img" />
-            <div className="re-details">
-              <div>
-                <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /Day</span>
-                <button
-                  className="btn-re-view-details"
-                  onClick={() =>
-                    setIsViewDetail(<ViewDetails details={details} />)
-                  }
-                >
-                  View
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="rent-equip-card">
-            <img src="" alt="" className="re-img" />
-            <div className="re-details">
-              <div>
-                <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /Day</span>
-                <button
-                  className="btn-re-view-details"
-                  onClick={() =>
-                    setIsViewDetail(<ViewDetails details={details} />)
-                  }
-                >
-                  View
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="rent-equip-card">
-            <img src="" alt="" className="re-img" />
-            <div className="re-details">
-              <div>
-                <h4>{"Product-Name"}</h4>
-                <span>₹ {"2000"} /Day</span>
-                <button
-                  className="btn-re-view-details"
-                  onClick={() =>
-                    setIsViewDetail(<ViewDetails details={details} />)
-                  }
-                >
-                  View
-                </button>
-              </div>
-            </div>
-          </div>
+          {equipments?.map((equipment, index) => (
+            <EquipCards
+              key={index}
+              details={showDetails}
+              equipment={equipment}
+            />
+          ))}
         </div>
-      ) : (
-        isViewDetail
       )}
     </>
   );

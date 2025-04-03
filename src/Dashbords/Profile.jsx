@@ -5,6 +5,7 @@ import Navigation from "../Coponents/Navigation";
 import MainLogo from "/public/Final Logo.png";
 
 import "../Styles/Profile.css";
+import axiosInstance from "../HelperFiles/axiosInstance";
 
 export default function Profile() {
   const [formdata, setFormData] = useState({});
@@ -12,12 +13,15 @@ export default function Profile() {
   const [isEdite, setIsEdite] = useState(false);
 
   useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    const userObject = storedUser ? JSON.parse(storedUser) : null;
     let formdata = {
-      FullName: "shivam",
-      Email: "shivam@gmail.com",
-      password: "12345678",
-      MobileNo: "8623876761",
-      pinCode: "401209",
+      id: userObject.id,
+      username: userObject.username,
+      Email: userObject.Email,
+      password: null,
+      mobileNo: userObject.mobileNo,
+      pincode: userObject.pincode,
     };
 
     setFormData(formdata);
@@ -32,6 +36,21 @@ export default function Profile() {
 
   const submitForm = async (event) => {
     event.preventDefault();
+
+    axiosInstance
+      .put(
+        "/profile",
+        { ...formdata },
+        {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        }
+      )
+      .then((res) => {
+        alert(res.data.message);
+      })
+      .catch((err) => {
+        alert(err.error);
+      });
   };
 
   const setVisiblity = () => {
@@ -49,13 +68,13 @@ export default function Profile() {
             <div className="inputBox">
               <input
                 type="text"
-                name="FullName"
+                name="username"
                 required
                 disabled={!isEdite}
                 onChange={setValue}
-                value={formdata.FullName || ""}
+                value={formdata.username || ""}
               />
-              <label>Full Name</label>
+              <label>Username</label>
             </div>
             <div className="inputBox">
               <input
@@ -103,22 +122,22 @@ export default function Profile() {
             <div className="inputBox">
               <input
                 type="number"
-                name="MobileNo"
+                name="mobileNo"
                 required
                 disabled={!isEdite}
                 onChange={setValue}
-                value={formdata.MobileNo || ""}
+                value={formdata.mobileNo || ""}
               />
               <label>Mobile No</label>
             </div>
             <div className="inputBox">
               <input
                 type="number"
-                name="pinCode"
+                name="pincode"
                 required
                 disabled={!isEdite}
                 onChange={setValue}
-                value={formdata.pinCode || ""}
+                value={formdata.pincode || ""}
               />
               <label>Pincode</label>
             </div>

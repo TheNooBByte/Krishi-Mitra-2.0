@@ -9,6 +9,7 @@ import GetIn from "./GetIn";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import BookingDetails from "./Coponents/BookingDetails";
+// import ImageUpload from "./Coponents/ImageUpload";
 // import Notification from "./Coponents/Notification";
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
 
   return (
     <>
-      {/*  */}
+      {/* <ImageUpload /> */}
+
       {!isLoggedin ? (
         <GetIn refresh={refresh} />
       ) : (
@@ -38,7 +40,10 @@ function App() {
           <Route path="/Dashbord" element={<Dashbord />} />
           <Route path="/AddEquipment" element={<AddEquipment />} />
           <Route path="/Profile" element={<Profile />} />
-          <Route path="/RentEquipment" element={<RentEquipment />} />
+          <Route
+            path="/RentEquipment"
+            element={<RentEquipment refresh={refresh} />}
+          />
           <Route path="/BookingDetails" element={<BookingDetails />} />
         </Routes>
       )}

@@ -2,8 +2,16 @@ import { useState } from "react";
 import Carousel from "./Carousel";
 
 export default function ViewDetails({ details }) {
-  const images = ["MahindraRotavator .png", "Rotavator.webp", "crousel1.png"];
+  // const images = ["MahindraRotavator .png", "Rotavator.webp", "crousel1.png"];
 
+  let tempimages = details.imagePaths.split(",");
+  let images = [];
+  for (let tempimage of tempimages) {
+    images.push(`${tempimage.split(/[/\\]/).pop()}`);
+  }
+  console.log(images);
+
+  // const images = details.imagePaths;
   return (
     <>
       <img
@@ -15,17 +23,17 @@ export default function ViewDetails({ details }) {
       <Carousel images={images} />
 
       <div className="details-container">
-        <h2 id="h1">Equipemt Name</h2>
-        <h3>Brand name</h3>
-        <h3>Emplement Power</h3>
-        <h3>Fare</h3>
+        <h2 id="h1">{details.equipName}</h2>
+        <h3>{details.brand}</h3>
+        <h3>{details.power}</h3>
+        <h3>{details.fare}</h3>
         <div className="time-slote">
           <label>
             <h3>Availability</h3>
           </label>
-          <h4>{"Start "} </h4>
+          <h4>{details.froms} </h4>
           <h4>to</h4>
-          <h4> {" end"}</h4>
+          <h4> {details.tos}</h4>
         </div>
         {/* <div className="disc-box">
           <label>
