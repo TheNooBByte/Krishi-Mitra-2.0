@@ -1,12 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import axiosInstance from "./HelperFiles/axiosInstance";
+import Loader from "./Coponents/Loader";
 
 import "./Styles/Login.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Login({ refresh }) {
+  const [loading, setLoading] = useState(null);
+
   const [formdata, setFormData] = useState({});
   const [isPasswordVisible, setPasswordVisible] = useState(false);
 
@@ -20,6 +23,7 @@ export default function Login({ refresh }) {
 
   const submitForm = async (event) => {
     event.preventDefault();
+    setLoading(<Loader />);
 
     let username = formdata.username;
     let password = formdata.password;
@@ -29,8 +33,12 @@ export default function Login({ refresh }) {
       localStorage.setItem("user", JSON.stringify(res.data.userData));
       // console.log(res.data.userData);
       alert(res.data.message);
+      setLoading(null);
+
       refresh();
     } catch (error) {
+      setLoading(null);
+
       // alert(error.response.data.error);
       alert(error.response.data.error);
     }
@@ -42,6 +50,7 @@ export default function Login({ refresh }) {
 
   return (
     <>
+      {loading}
       <div className="box" style={{ marginTop: "10vh" }}>
         <h2>Login</h2>
         <form onSubmit={submitForm}>

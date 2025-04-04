@@ -3,11 +3,13 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import Navigation from "../Coponents/Navigation";
 import MainLogo from "/public/Final Logo.png";
+import Loader from "../Coponents/Loader";
 
 import "../Styles/Profile.css";
 import axiosInstance from "../HelperFiles/axiosInstance";
 
 export default function Profile() {
+  const [loading, setLoading] = useState(null);
   const [formdata, setFormData] = useState({});
   const [isPasswordVisible, setPasswordVisible] = useState(false);
   const [isEdite, setIsEdite] = useState(false);
@@ -36,7 +38,7 @@ export default function Profile() {
 
   const submitForm = async (event) => {
     event.preventDefault();
-
+    setLoading(<Loader />);
     axiosInstance
       .put(
         "/profile",
@@ -47,8 +49,10 @@ export default function Profile() {
       )
       .then((res) => {
         alert(res.data.message);
+        setLoading(null);
       })
       .catch((err) => {
+        setLoading(null);
         alert(err.error);
       });
   };
@@ -59,6 +63,7 @@ export default function Profile() {
 
   return (
     <>
+      {loading}
       <Navigation profile={true} />
       <div className="container-addEquipment">
         <img className="Main-logo" src={MainLogo} alt="" />

@@ -6,8 +6,6 @@ import "../Styles/Carousel.css";
 export default function Carousel({ home, images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // const images = ["crousel1.png", "crousel1.png", "crousel1.png"];
-
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
@@ -34,7 +32,7 @@ export default function Carousel({ home, images }) {
               key={index}
               src={
                 home
-                  ? "/Krishi-Mitra-2.0/public/" + img
+                  ? `${Domain}/assets/equipments/` + img
                   : `${Domain}/assets/equipments/${img}`
               }
               alt={`Slide ${index}`}

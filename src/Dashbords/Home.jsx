@@ -1,6 +1,7 @@
 import Carousel from "../Coponents/Carousel";
 import Navigation from "../Coponents/Navigation";
 import { Link } from "react-router-dom";
+import Domain from "../HelperFiles/Domain";
 //
 //
 import "../Styles/Home.css";
@@ -11,14 +12,13 @@ export default function Home() {
   const userObject = storedUser ? JSON.parse(storedUser) : null;
 
   // console.log(userObject); // { name: "John", age: 25, city: "New York" }
-
   console.log(userObject.username);
 
   return (
     <>
       <Navigation home={true} />
       <img
-        src="/Krishi-Mitra-2.0/public/Final Logo.png"
+        src={`${Domain}/assets/equipments/Final Logo.png`}
         alt=""
         className="mainLogo"
       />
@@ -36,7 +36,7 @@ export default function Home() {
         <div className="home-card">
           <div className="inr">
             <img
-              src="Krishi-Mitra-2.0\public\homep1.png"
+              src={`${Domain}/assets/equipments/homep1.png`}
               alt=""
               className="imginr"
             />
@@ -46,7 +46,7 @@ export default function Home() {
           </div>
           <div className="wheat">
             <img
-              src="Krishi-Mitra-2.0\public\Sucide.png"
+              src={`${Domain}/assets/equipments/Sucide.png`}
               alt=""
               className="imgwheat"
             />

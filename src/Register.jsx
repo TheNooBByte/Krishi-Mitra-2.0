@@ -2,11 +2,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import axiosInstance from "./HelperFiles/axiosInstance";
 import { Link, useNavigate } from "react-router-dom";
+import Loader from "./Coponents/Loader";
 
 import "./Styles/Login.css";
 import { useState } from "react";
 
 export default function Register() {
+  const [loading, setLoading] = useState(null);
+
   const [formdata, setFormData] = useState({});
   const [isPasswordVisible, setPasswordVisible] = useState(false);
   const navigate = useNavigate();
@@ -20,6 +23,8 @@ export default function Register() {
 
   const submitForm = async (event) => {
     event.preventDefault();
+    setLoading(<Loader />);
+
     if (formdata.password == formdata.Confpassword) {
       // let username = formdata.username;
       // let password = formdata.password;
@@ -27,8 +32,11 @@ export default function Register() {
         const res = await axiosInstance.post("/register", { ...formdata });
         // console.log(res);
         alert(res.data.message);
+        setLoading(null);
+
         navigate("/");
       } catch (error) {
+        setLoading(null);
         alert(error.response.data.error);
       }
     } else {
@@ -42,6 +50,7 @@ export default function Register() {
 
   return (
     <>
+      {loading}
       <div className="box">
         <h2>Register</h2>
         <form onSubmit={submitForm}>
