@@ -7,7 +7,7 @@ import Domain from "../HelperFiles/Domain";
 import "../Styles/Home.css";
 
 export default function Home() {
-  const images = ["crousel1.png", "crousel2.png", "crousel3.png"];
+  const images = ["crousel1.png", "Crousel2.png", "Crousel3.png"];
   const storedUser = localStorage.getItem("user");
   const userObject = storedUser ? JSON.parse(storedUser) : null;
 

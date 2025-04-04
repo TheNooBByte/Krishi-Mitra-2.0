@@ -4,22 +4,30 @@ import { useEffect, useState } from "react";
 import ViewDetails from "./ViewDetails";
 import axiosInstance from "../HelperFiles/axiosInstance";
 import EquipCards from "./EquipCards";
+import Loader from "../Coponents/Loader";
 
 export default function RentEquipment({ refresh }) {
+  const [loading, setLoading] = useState(null);
+
   const [isViewDetail, setIsViewDetail] = useState(null);
   const [equipments, setEquipments] = useState([]);
 
   useEffect(() => {
+    setLoading(<Loader />);
+
     axiosInstance
       .get("/rentequipment", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((res) => {
+        setLoading(null);
+
         console.log(res.data);
         setEquipments(res.data);
         console.log(res.data.length);
       })
       .catch((err) => {
+        setLoading(null);
         console.log(err);
         if (err.status == 403) {
           localStorage.clear();
@@ -34,6 +42,7 @@ export default function RentEquipment({ refresh }) {
 
   return (
     <>
+      {loading}
       <Navigation home={true} />
       {isViewDetail}
       {isViewDetail == null && (
