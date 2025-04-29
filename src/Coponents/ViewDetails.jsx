@@ -1,14 +1,37 @@
 // import { useState } from "react";
+import axiosInstance from "../HelperFiles/axiosInstance";
 import Carousel from "./Carousel";
 
-export default function ViewDetails({ details }) {
+export default function ViewDetails({ details, userId }) {
+  // console.log(details, userId);
+
   // const images = ["MahindraRotavator .png", "Rotavator.webp", "crousel1.png"];
+
+  const storedUser = localStorage.getItem("user");
+  const userObject = storedUser ? JSON.parse(storedUser) : null;
+  // console.log(userObject);
 
   let tempimages = details.imagePaths.split(",");
   let images = [];
   for (let tempimage of tempimages) {
     images.push(`${tempimage.split(/[/\\]/).pop()}`);
   }
+
+  let bookNow = () => {
+    axiosInstance
+      .post("/rentequipment", {
+        userdata: { ...details },
+        userId: userObject.id,
+        mob: userObject.mobileNo,
+      })
+      .then((res) => {
+        alert(res.data.message);
+      })
+      .catch((err) => {
+        // console.log(err);
+        alert(err);
+      });
+  };
   // console.log(images);
   // console.log("details are:-", details);
 
@@ -36,20 +59,10 @@ export default function ViewDetails({ details }) {
           <h4>to</h4>
           <p> {details.tos}</p>
         </div>
-        {/* <div className="disc-box">
-          <label>
-            <h3>Discreption</h3>
-          </label>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel
-            asperiores alias modi ad nostrum officia eos tempore ipsa, sequi
-            neque vero delectus ullam, harum nesciunt. Odit, sed ab aliquam
-            explicabo a adipisci aspernatur fugit ea illo provident rerum eum
-            officiis, cumque molestias voluptas illum exercitationem quidem?
-            Doloremque provident dolor sapiente!
-          </p>
-        </div> */}
-        <button className="btn-book-now">Book Now</button>
+
+        <button className="btn-book-now" onClick={bookNow}>
+          Book Now
+        </button>
       </div>
     </>
   );

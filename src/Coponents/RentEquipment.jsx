@@ -7,6 +7,9 @@ import EquipCards from "./EquipCards";
 import Loader from "../Coponents/Loader";
 
 export default function RentEquipment({ refresh }) {
+  const storedUser = localStorage.getItem("user");
+  const userObject = storedUser ? JSON.parse(storedUser) : null;
+
   const [loading, setLoading] = useState(null);
 
   const [isViewDetail, setIsViewDetail] = useState(null);
@@ -36,8 +39,8 @@ export default function RentEquipment({ refresh }) {
       });
   }, []);
 
-  let showDetails = (details) => {
-    setIsViewDetail(<ViewDetails details={details} />);
+  let showDetails = (details, userid) => {
+    setIsViewDetail(<ViewDetails details={details} userId={userid} />);
   };
 
   return (
@@ -52,6 +55,8 @@ export default function RentEquipment({ refresh }) {
               key={index}
               details={showDetails}
               equipment={equipment}
+              isOwn={equipment.userId == userObject.id}
+              userid={equipment.userId}
             />
           ))}
         </div>
