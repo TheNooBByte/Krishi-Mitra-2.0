@@ -20,7 +20,7 @@ export default function Carousel({ home, images }) {
     const interval = setInterval(nextSlide, 1200);
     return () => clearInterval(interval);
   }, []);
-  return 
+  return (
     <div className="home-container">
       <div className="carousel-container">
         <div
