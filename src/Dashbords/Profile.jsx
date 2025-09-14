@@ -69,6 +69,7 @@ export default function Profile() {
         <img className="Main-logo" src={MainLogo} alt="" />
         <div className="box">
           <h2>Profile</h2>
+          
           <form onSubmit={submitForm}>
             <div className="inputBox">
               <input
@@ -146,25 +147,96 @@ export default function Profile() {
               />
               <label>Pincode</label>
             </div>
-            {isEdite ? (
-              <input
-                style={{ marginLeft: "33vw" }}
-                type="submit"
-                name="Done"
-                value="Done"
-              />
-            ) : (
-              <button
-                style={{
-                  margin: "auto",
-                }}
-                className="edite-btn"
-                onClick={() => setIsEdite(true)}
-              >
-                <i className="fa-solid fa-pen-to-square"></i>
-                Edit
-              </button>
-            )}
+            {/* Buttons Section */}
+            {/* Buttons Section */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: isEdite ? "center" : "space-between",
+                marginTop: "10px",
+              }}
+            >
+              {isEdite ? (
+                <div style={{ display: "flex", gap: "10px" }}>
+                  {/* Save button */}
+                  <input
+                    style={{
+                      backgroundColor: "#4CAF50",
+                      color: "white",
+                      padding: "10px 20px",
+                      border: "none",
+                      borderRadius: "5px",
+                      cursor: "pointer",
+                      width: "100px",
+                    }}
+                    type="submit"
+                    name="Done"
+                    value="Save"
+                  />
+
+                  {/* Back button */}
+                  <button
+                    style={{
+                      backgroundColor: "gray",
+                      color: "white",
+                      padding: "10px 20px",
+                      border: "none",
+                      borderRadius: "5px",
+                      cursor: "pointer",
+                      width: "100px",
+                    }}
+                    onClick={() => setIsEdite(false)}
+                  >
+                    Back
+                  </button>
+                </div>
+              ) : (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between", gap:'10px', // ✅ Edit left, Logout right
+                    marginTop: "10px",
+                  }}
+                >
+                  {/* Edit Button */}
+                  <button
+                    style={{
+                      backgroundColor: "#4CAF50",
+                      color: "white",
+                      padding: "10px 1px",
+                      border: "none",
+                      borderRadius: "5px",
+                      cursor: "pointer",
+                      width: "100px",
+                    }}
+                    onClick={() => setIsEdite(true)}
+                  >
+                    Edit
+                  </button>
+
+                  {/* Logout Button */}
+                  <button
+                    style={{
+                      backgroundColor: "red",
+                      color: "white",
+                      padding: "10px 20px",
+                      border: "none",
+                      borderRadius: "5px",
+                      cursor: "pointer",
+                      width: "100px",
+                    }}
+                    onClick={() => {
+                      localStorage.removeItem("token");
+                      localStorage.removeItem("user");
+                      alert("Logged out successfully!");
+                      window.location.href = "/login"; // Login/Register page par redirect
+                    }}
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
           </form>
         </div>
       </div>

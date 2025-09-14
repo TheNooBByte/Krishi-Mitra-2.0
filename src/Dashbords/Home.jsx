@@ -33,6 +33,14 @@ export default function Home() {
             Provide Equipment
           </Link>
         </div>
+
+        {/* 🌱 Yeh flex ke bahar rakha niche center me */}
+        <div className="crop-btn-container">
+          <Link to="/CropRecommendation" className="crop-recommendation">
+            Get Crop Recommendation
+          </Link>
+        </div>
+
         <div className="home-card">
           <div className="inr">
             <img

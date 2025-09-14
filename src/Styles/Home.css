@@ -18,6 +18,7 @@
 }
 
 .home-btns > * {
+  
   /* border: solid 1px; */
   border-radius: 10px;
   height: 5vh;
@@ -33,12 +34,35 @@
 }
 
 .rent-equipment {
-  background-color: #FFF2F2;
+  background-color: #fff2f2;
 }
 
 .provide-equipment {
-  background-color: #FFF2F2;
+  background-color: #fff2f2;
 }
+.crop-btn-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px; /* thoda gap upar se */
+}
+
+.crop-recommendation {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #fff2f2;
+  color: black;
+  border-radius: 10px;
+  font-weight: 550;
+  text-decoration: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.crop-recommendation:hover {
+  background-color: #ffe6e6;
+}
+
 
 .home-card {
   /* border: solid 1px; */
@@ -69,7 +93,7 @@
   text-align: center;
 }
 
-.bgcolor{
+.bgcolor {
   /* border-color: #fff5e4; */
   border-radius: 15px;
   /* background-color: #fff5e4; */
