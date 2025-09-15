@@ -65,12 +65,14 @@
 
 
 .home-card {
-  /* border: solid 1px; */
-  height: 25vh;
+ /* height: 25vh;  ❌ ye hata do */
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
+  flex-wrap: wrap;   /* mobile pe neeche aa jaye */
+  margin-top: 20px;
+
+}    
 
 .inr,
 .wheat {

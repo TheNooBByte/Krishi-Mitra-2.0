@@ -17,7 +17,7 @@ export default function Carousel({ home, images }) {
   // };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 1200);
+    const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
   }, []);
   return (
