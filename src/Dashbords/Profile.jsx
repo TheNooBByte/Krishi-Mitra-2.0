@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import Navigation from "../Coponents/Navigation";
+import { useNavigate } from "react-router-dom";
 import MainLogo from "/public/Final Logo.png";
 import Loader from "../Coponents/Loader";
 
@@ -9,6 +10,7 @@ import "../Styles/Profile.css";
 import axiosInstance from "../HelperFiles/axiosInstance";
 
 export default function Profile() {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(null);
   const [formdata, setFormData] = useState({});
   const [isPasswordVisible, setPasswordVisible] = useState(false);
@@ -69,7 +71,7 @@ export default function Profile() {
         <img className="Main-logo" src={MainLogo} alt="" />
         <div className="box">
           <h2>Profile</h2>
-          
+
           <form onSubmit={submitForm}>
             <div className="inputBox">
               <input
@@ -194,7 +196,8 @@ export default function Profile() {
                 <div
                   style={{
                     display: "flex",
-                    justifyContent: "space-between", gap:'10px', // ✅ Edit left, Logout right
+                    justifyContent: "space-between",
+                    gap: "10px", // ✅ Edit left, Logout right
                     marginTop: "10px",
                   }}
                 >
@@ -229,7 +232,7 @@ export default function Profile() {
                       localStorage.removeItem("token");
                       localStorage.removeItem("user");
                       alert("Logged out successfully!");
-                      window.location.href = "/login"; // Login/Register page par redirect
+                      navigate("/Login"); // ✅ ab direct login page par chala jayega
                     }}
                   >
                     Logout
