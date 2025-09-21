@@ -30,6 +30,21 @@ export default function Profile() {
 
     setFormData(formdata);
   }, []);
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    const userObject = storedUser ? JSON.parse(storedUser) : null;
+    let formdata = {
+      id: userObject.id,
+      username: userObject.username,
+      Email: userObject.Email,
+      password: null,
+      mobileNo: userObject.mobileNo,
+      pincode: userObject.pincode,
+      kycStatus: userObject.kycStatus || "Pending", // ✅ Default "Pending"
+    };
+
+    setFormData(formdata);
+  }, []);
 
   const setValue = (event) => {
     setFormData((formdata) => {
@@ -69,6 +84,56 @@ export default function Profile() {
       <Navigation profile={true} />
       <div className="container-addEquipment">
         <img className="Main-logo" src={MainLogo} alt="" />
+        {/* KYC Status Badge */}
+        <div
+          style={{
+            position: "absolute",
+            top: "25px", // ✅ 10px padding from top
+            right: "20px", // ✅ 10px padding from right
+          }}
+        >
+          {formdata.kycStatus === "Verified" ? (
+            <span
+              style={{
+                backgroundColor: "green",
+                color: "white",
+                padding: "6px 12px",
+                borderRadius: "20px",
+                fontSize: "14px",
+                fontWeight: "bold",
+              }}
+            >
+              ✅ Verified
+            </span>
+          ) : formdata.kycStatus === "Rejected" ? (
+            <span
+              style={{
+                backgroundColor: "red",
+                color: "white",
+                padding: "6px 12px",
+                borderRadius: "20px",
+                fontSize: "14px",
+                fontWeight: "bold",
+              }}
+            >
+              ❌ Rejected
+            </span>
+          ) : (
+            <span
+              style={{
+                backgroundColor: "orange",
+                color: "white",
+                padding: "6px 12px",
+                borderRadius: "20px",
+                fontSize: "14px",
+                fontWeight: "bold",
+              }}
+            >
+              ⏳ Pending
+            </span>
+          )}
+        </div>
+
         <div className="box">
           <h2>Profile</h2>
 

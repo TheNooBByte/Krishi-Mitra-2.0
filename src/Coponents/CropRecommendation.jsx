@@ -1,7 +1,6 @@
-import Navigation from "../Coponents/Navigation";
+import Navigation from "./Navigation";
 import MainLogo from "/public/Final Logo.png";
-import "../Styles/Profile.css"; // same style use kar rahe hai
-
+import "../Styles/Profile.css";
 import { useState } from "react";
 
 export default function CropRecommendation() {
@@ -12,7 +11,6 @@ export default function CropRecommendation() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Dummy recommendation (abhi API ya DB se nahi aata)
     if (district && season) {
       setRecommendation(["🌾 Wheat", "🌾 Rice", "🌽 Maize", "🥔 Potato"]);
     }
@@ -25,10 +23,13 @@ export default function CropRecommendation() {
         <img className="Main-logo" src={MainLogo} alt="" />
         <div className="box">
           <h2>Crop Recommendation</h2>
+
+          {/* Form */}
           <form onSubmit={handleSubmit}>
             <div className="inputBox">
               <input
                 type="text"
+                name="district"
                 value={district}
                 onChange={(e) => setDistrict(e.target.value)}
                 required
@@ -39,6 +40,7 @@ export default function CropRecommendation() {
             <div className="inputBox">
               <input
                 type="text"
+                name="season"
                 value={season}
                 onChange={(e) => setSeason(e.target.value)}
                 required
@@ -46,9 +48,9 @@ export default function CropRecommendation() {
               <label>Season (e.g. Kharif, Rabi)</label>
             </div>
 
-            <input
+            {/* Button */}
+            <button
               type="submit"
-              value="Get Recommendation"
               style={{
                 marginTop: "15px",
                 padding: "10px",
@@ -57,10 +59,14 @@ export default function CropRecommendation() {
                 border: "none",
                 borderRadius: "5px",
                 cursor: "pointer",
+                width: "100%",
               }}
-            />
+            >
+              Get Recommendation
+            </button>
           </form>
 
+          {/* Recommendations List */}
           {recommendation && (
             <div style={{ marginTop: "20px" }}>
               <h3>Suggested Crops:</h3>
