@@ -1,78 +1,57 @@
-import Navigation from "./Navigation";
-import MainLogo from "/public/Final Logo.png";
-import "../Styles/Profile.css";
 import { useState } from "react";
+import Navigation from "../Coponents/Navigation";
+import MainLogo from "/public/Final Logo.png";
+import "../Styles/CropRecommendation.css"; // ✅ new CSS import
 
 export default function CropRecommendation() {
   const [district, setDistrict] = useState("");
   const [season, setSeason] = useState("");
   const [recommendation, setRecommendation] = useState(null);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (district && season) {
-      setRecommendation(["🌾 Wheat", "🌾 Rice", "🌽 Maize", "🥔 Potato"]);
-    }
   };
-
+  
   return (
     <>
       <Navigation />
-      <div className="container-addEquipment">
-        <img className="Main-logo" src={MainLogo} alt="" />
-        <div className="box">
+      <div className="container-cropReco">
+        <img className="cropReco-logo" src={MainLogo} alt="logo" />
+        <div className="cropReco-box">
           <h2>Crop Recommendation</h2>
-
-          {/* Form */}
           <form onSubmit={handleSubmit}>
-            <div className="inputBox">
+            <div className="cropReco-inputBox">
               <input
                 type="text"
                 name="district"
-                value={district}
-                onChange={(e) => setDistrict(e.target.value)}
                 required
+                onChange={(e) => setDistrict(e.target.value)}
+                value={district}
               />
-              <label>Enter District</label>
+              <label>District</label>
             </div>
 
-            <div className="inputBox">
+            <div className="cropReco-inputBox">
               <input
                 type="text"
                 name="season"
-                value={season}
-                onChange={(e) => setSeason(e.target.value)}
                 required
+                onChange={(e) => setSeason(e.target.value)}
+                value={season}
               />
-              <label>Season (e.g. Kharif, Rabi)</label>
+              <label>Season</label>
             </div>
 
-            {/* Button */}
-            <button
+            <input
               type="submit"
-              style={{
-                marginTop: "15px",
-                padding: "10px",
-                backgroundColor: "#4CAF50",
-                color: "white",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-                width: "100%",
-              }}
-            >
-              Get Recommendation
-            </button>
+              value="Get Recommendation"
+              className="cropReco-submit"
+            />
           </form>
 
-          {/* Recommendations List */}
           {recommendation && (
-            <div style={{ marginTop: "20px" }}>
+            <div className="cropReco-result">
               <h3>Suggested Crops:</h3>
               <ul>
-                {recommendation.map((crop, index) => (
-                  <li key={index}>{crop}</li>
+                {recommendation.map((crop, idx) => (
+                  <li key={idx}>{crop}</li>
                 ))}
               </ul>
             </div>
