@@ -1,14 +1,17 @@
 .dashbord-container {
-  background-color: #fff5e4;
-  border: solid 1px;
-  height: 60vh;
+  /* background-color: #fff5e4; */
+  /* border: solid 1px; */
+  /* max-height: 60vh; */
   width: 95vw;
   margin: auto;
   border-radius: 10px;
-  /* margin-top: ; */
+  margin-bottom: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10vh;
+  /* overflow-y: scroll; */
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .headings {
@@ -53,6 +56,33 @@
 
   overflow-x: scroll;
 }
-h1{
+h1 {
   font-size: 2.8vh;
+}
+
+.dashbord-container-in {
+  /* display: flex; */
+  width: 100%;
+  height: max-content;
+  /* justify-content: center; */
+  /* background-color: red; */
+}
+
+.text {
+  height: max-content;
+  width: max-content;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+  background-color: purple;
+}
+.dashboard-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  flex-direction: column;
+  background-color: red;
+  height: 15vh;
+  width: 70vw;
 }

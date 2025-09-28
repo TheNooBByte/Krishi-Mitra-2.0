@@ -48,6 +48,8 @@ export default function Register() {
         navigate("/"); // ✅ success ke baad login page
       } catch (error) {
         setLoading(null);
+        console.log(error);
+
         alert(error.response?.data?.error || "Registration failed");
       }
     } else {

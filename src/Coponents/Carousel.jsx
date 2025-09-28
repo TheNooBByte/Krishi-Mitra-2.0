@@ -6,9 +6,13 @@ import "../Styles/Carousel.css";
 export default function Carousel({ home, images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  console.log(images);
+
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
+
+  // console.log(Domain, images);
 
   // const prevSlide = () => {
   //   setCurrentIndex(
@@ -32,10 +36,10 @@ export default function Carousel({ home, images }) {
               key={index}
               src={
                 home
-                  ? `${Domain}/assets/equipments/` + img
-                  : `${Domain}/assets/equipments/${img}`
+                  ? `${Domain}/assets/webAssets/` + img
+                  : `${Domain}/assets/equipments/` + img
               }
-              alt={`Slide ${index}`}
+              alt={`Slide ${index} ${Domain}/assets/equipments/ ` + img}
               className="carousel-image"
             />
           ))}

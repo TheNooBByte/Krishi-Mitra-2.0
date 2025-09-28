@@ -98,7 +98,12 @@
   /* background-color: #fff5e4; */
   /* border: solid 1px; */
 }
-.bgcolor h2{
+.bgcolor h2 {
   /* background-color: red; */
-font-size: 2.8vh;
+  font-size: 2.8vh;
+}
+
+.home-container-carousel {
+  width: 90%;
+  margin: auto;
 }

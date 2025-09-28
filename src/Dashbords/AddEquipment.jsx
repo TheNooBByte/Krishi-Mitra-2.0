@@ -1,103 +1,101 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState, useEffect, useRef } from "react";
 import Navigation from "../Coponents/Navigation";
 import "../Styles/AddEquipment.css";
 import MainLogo from "/public/Final Logo.png";
 import axiosInstance from "../HelperFiles/axiosInstance";
-import { useState } from "react";
 
 export default function AddEquipment() {
   const [images, setImages] = useState([]);
   const [preview, setPreview] = useState([]);
-  //
-  //
-  //
+  const fileInputRef = useRef(null);
 
   const today = new Date();
-  const tomorrow = new Date();
-  const todate = new Date();
+  const tomorrow = new Date(today);
+  const dayAfter = new Date(today);
   tomorrow.setDate(today.getDate() + 1);
-  todate.setDate(today.getDate() + 2);
-  //
-  //
-  //
-  //
-  //
-  const [formdata, setFormData] = useState({});
-  const id = JSON.parse(localStorage.getItem("user")).id;
-  const setValue = (event) => {
-    setFormData((formdata) => {
-      formdata.id = id;
-      formdata[event.target.name] = event.target.value;
-      return { ...formdata };
-    });
-  };
-  //
-  //
-  //
+  dayAfter.setDate(today.getDate() + 2);
 
+  const [formdata, setFormData] = useState(() => {
+    const id = JSON.parse(localStorage.getItem("user"))?.id || "";
+    return { id };
+  });
+
+  // Handle text/select/date input changes
+  const setValue = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // Handle image selection and preview generation
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
     setImages(files);
     setPreview(files.map((file) => URL.createObjectURL(file)));
   };
-  //
-  //
-  //
-  //
 
-  const submitForm = async (event) => {
-    event.preventDefault();
-    const formData = new FormData();
+  // Revoke object URLs to avoid memory leaks
+  useEffect(() => {
+    return () => {
+      preview.forEach((url) => URL.revokeObjectURL(url));
+    };
+  }, [preview]);
+
+  // Submit the form
+  const submitForm = async (e) => {
+    e.preventDefault();
+
+    // Validate date range
+    if (new Date(formdata.toDate) <= new Date(formdata.fromDate)) {
+      alert("To date must be after From date.");
+      return;
+    }
+
+    const formDataToSend = new FormData();
     Object.entries(formdata).forEach(([key, value]) => {
-      formData.append(key, value);
+      formDataToSend.append(key, value);
     });
 
     images.forEach((image) => {
-      formData.append("images", image);
+      formDataToSend.append("images", image);
     });
 
     try {
-      const response = await axiosInstance.post("/addequipment", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await axiosInstance.post(
+        "/addequipment",
+        formDataToSend,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
 
-      setFormData({});
       alert(response.data.message);
+      setFormData({ id: formdata.id }); // Keep user ID, reset rest
+      setImages([]);
+      setPreview([]);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = null;
+      }
     } catch (error) {
       console.error("Upload Failed:", error);
       alert("Upload Failed!");
     }
-
-    // axiosInstance
-    //   .post(
-    //     "/addequipment",
-    //     { ...formdata },
-    //     {
-    //       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-    //     }
-    //   )
-    //   .then((res) => {
-    //     alert(res.data.message);
-    //   })
-    //   .catch((err) => {
-    //     alert(err.error);
-    //   });
   };
 
-  // const setVisiblity = () => {
-  //   setPasswordVisible(isPasswordVisible ? false : true);
-  // };
   return (
     <>
       <Navigation addequipment={true} />
       <div className="container-addEquipment">
-        <img className="Main-logo" src={MainLogo} alt="" />
+        <img className="Main-logo" src={MainLogo} alt="Main Logo" />
         <div className="box">
           <h2>Add Equipment</h2>
           <form onSubmit={submitForm}>
+            {/* Equipment Name */}
             <div className="inputBox">
               <input
                 type="text"
@@ -108,34 +106,36 @@ export default function AddEquipment() {
               />
               <label>Equipment Name</label>
             </div>
+
+            {/* Equipment Type */}
             <div className="inputBox">
               <select
                 className="input"
                 name="equipmentType"
                 value={formdata.equipmentType || ""}
                 onChange={setValue}
-                id=""
+                required
               >
-                <option value="null"></option>
-                <option className="option" value="a">
-                  Rotavator
-                </option>
+                <option value="">-- Select Equipment Type --</option>
+                <option value="Rotavator">Rotavator</option>
                 <option value="Thresher">Thresher</option>
                 <option value="Trolley">Trolley</option>
                 <option value="Disk Plough">Disk Plough</option>
-                <option value="Laser Land Leveler">Laser Land Leveler </option>
+                <option value="Laser Land Leveler">Laser Land Leveler</option>
               </select>
               <label>Equipment Type</label>
             </div>
+
+            {/* Brand */}
             <div className="inputBox">
               <select
                 className="input"
                 name="brand"
                 value={formdata.brand || ""}
                 onChange={setValue}
-                id=""
+                required
               >
-                <option value="null"></option>
+                <option value="">-- Select Brand --</option>
                 <option value="Sonalika">Sonalika</option>
                 <option value="Mahindra">Mahindra</option>
                 <option value="Swaraj">Swaraj</option>
@@ -143,15 +143,17 @@ export default function AddEquipment() {
               </select>
               <label>Brand</label>
             </div>
+
+            {/* Implement Power */}
             <div className="inputBox">
               <select
                 className="input"
                 name="implementPower"
                 value={formdata.implementPower || ""}
                 onChange={setValue}
-                id=""
+                required
               >
-                <option value="null"></option>
+                <option value="">-- Select Power Range --</option>
                 <option value="30-40 HP">30-40 HP</option>
                 <option value="40-50 HP">40-50 HP</option>
                 <option value="60-75 HP">60-75 HP</option>
@@ -160,6 +162,7 @@ export default function AddEquipment() {
               <label>Implement Power</label>
             </div>
 
+            {/* From Date */}
             <div className="inputBox">
               <input
                 type="date"
@@ -171,17 +174,21 @@ export default function AddEquipment() {
               />
               <label>From</label>
             </div>
+
+            {/* To Date */}
             <div className="inputBox">
               <input
                 type="date"
                 name="toDate"
-                min={todate.toISOString().split("T")[0]}
+                min={dayAfter.toISOString().split("T")[0]}
                 required
                 onChange={setValue}
                 value={formdata.toDate || ""}
               />
               <label>To</label>
             </div>
+
+            {/* Fare Per Day */}
             <div className="inputBox">
               <input
                 type="number"
@@ -190,8 +197,10 @@ export default function AddEquipment() {
                 onChange={setValue}
                 value={formdata.amount || ""}
               />
-              <label>Fare/Per Day </label>
+              <label>Fare/Per Day</label>
             </div>
+
+            {/* Mobile Number */}
             <div className="inputBox">
               <input
                 type="number"
@@ -202,33 +211,60 @@ export default function AddEquipment() {
               />
               <label>Mobile No</label>
             </div>
+
+            {/* Pin Code */}
             <div className="inputBox">
               <input
                 type="number"
                 name="pinCode"
-                // min={1}
-                // max={6}
                 required
+                min="100000"
+                max="999999"
                 onChange={setValue}
                 value={formdata.pinCode || ""}
               />
               <label>Pincode</label>
             </div>
+
+            {/* Images */}
             <div className="inputBox input-images">
               <input
                 type="file"
-                accept="image/png, image/jpeg"
+                accept="image/png, image/jpeg, image/jpg"
                 multiple
                 required
                 onChange={handleFileChange}
+                ref={fileInputRef}
               />
-              <label>Image</label>
+              <label>Upload Images</label>
             </div>
 
+            {/* Preview Images */}
+            {preview.length > 0 && (
+              <div className="preview-container">
+                {preview.map((src, idx) => (
+                  <img
+                    key={idx}
+                    src={src}
+                    alt={`preview-${idx}`}
+                    className="preview-image"
+                    style={{
+                      width: "100px",
+                      height: "100px",
+                      objectFit: "cover",
+                      marginRight: "10px",
+                      borderRadius: "6px",
+                      border: "1px solid #ccc",
+                    }}
+                  />
+                ))}
+              </div>
+            )}
+
+            {/* Submit */}
             <input
               style={{ marginLeft: "6vw", width: "40vw" }}
               type="submit"
-              name="Submit"
               value="Submit"
             />
           </form>

@@ -19,13 +19,15 @@ export default function Home() {
     <>
       <Navigation home={true} />
       <img
-        src={`${Domain}/assets/equipments/Final Logo.png`}
+        src={`${Domain}/assets/webAssets/Final Logo.png`}
         alt=""
         className="mainLogo"
       />
       <div className="bgcolor">
         <h2 style={{ textAlign: "center" }}> Namaste! {userObject.username}</h2>
-        <Carousel home={true} images={images} />
+        <div className="home-container-carousel">
+          <Carousel home={true} images={images} />
+        </div>
         <div className="home-btns">
           <Link to="/RentEquipment" className="rent-equipment">
             Rent Equipment
@@ -45,7 +47,7 @@ export default function Home() {
         <div className="home-card">
           <div className="inr">
             <img
-              src={`${Domain}/assets/equipments/homep1.png`}
+              src={`${Domain}/assets/webAssets/homep1.png`}
               alt=""
               className="imginr"
             />
@@ -55,7 +57,7 @@ export default function Home() {
           </div>
           <div className="wheat">
             <img
-              src={`${Domain}/assets/equipments/Sucide.png`}
+              src={`${Domain}/assets/webAssets/Sucide.png`}
               alt=""
               className="imgwheat"
             />

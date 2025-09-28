@@ -297,7 +297,7 @@ export default function Profile() {
                       localStorage.removeItem("token");
                       localStorage.removeItem("user");
                       alert("Logged out successfully!");
-                      navigate("/Login"); // ✅ ab direct login page par chala jayega
+                      navigate("/"); // ✅ ab direct login page par chala jayega
                     }}
                   >
                     Logout
