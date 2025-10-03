@@ -22,6 +22,7 @@ export default function BookingData({ datas }) {
         })
         .then((res) => {
           console.log(res.data.message);
+          alert(res.data.message);
 
           setCurrstatus(status);
         })

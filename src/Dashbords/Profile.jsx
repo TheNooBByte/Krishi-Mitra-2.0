@@ -92,7 +92,7 @@ export default function Profile() {
             right: "20px", // ✅ 10px padding from right
           }}
         >
-          {formdata.kycStatus === "Verified" ? (
+          {formdata.kycStatus === "approved" ? (
             <span
               style={{
                 backgroundColor: "green",
@@ -105,7 +105,7 @@ export default function Profile() {
             >
               ✅ Verified
             </span>
-          ) : formdata.kycStatus === "Rejected" ? (
+          ) : formdata.kycStatus === "rejected" ? (
             <span
               style={{
                 backgroundColor: "red",

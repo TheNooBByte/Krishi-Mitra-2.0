@@ -3,7 +3,7 @@
 import AddEquipment from "./Dashbords/AddEquipment";
 import Dashbord from "./Dashbords/Dashbord";
 import Home from "./Dashbords/Home";
-// import CropRecommendation from "./CropRecommendation"; 
+// import CropRecommendation from "./CropRecommendation";
 import Profile from "./Dashbords/Profile";
 import RentEquipment from "./Coponents/RentEquipment";
 import GetIn from "./GetIn";
@@ -47,6 +47,7 @@ function App() {
             element={<RentEquipment refresh={refresh} />}
           />
           <Route path="/BookingDetails" element={<BookingDetails />} />
+          {/* <Route path="/getin" element={<GetIn />} /> */}
         </Routes>
       )}
     </>
